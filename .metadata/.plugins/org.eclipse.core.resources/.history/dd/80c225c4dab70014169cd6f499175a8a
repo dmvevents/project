@@ -1,0 +1,18 @@
+import java.awt.Image;
+import java.sql.Date;
+
+
+public class Users {
+	
+	private char userID;
+	private String email;
+	private String fName;
+	private String lName;
+	private Date dOB;
+	private gender gender;
+	private String password;
+	private Image Photo;
+	private LinkableHashMap<Events> events; 
+
+
+}

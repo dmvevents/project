@@ -20,10 +20,6 @@ public class Users {
 	private Color bgColor;
 	private Font font;
 	
-	/**
-	 * 
-	 * Get Methods 
-	 */
 	public String getUserID() {
 		return userID;
 	}
@@ -60,11 +56,6 @@ public class Users {
 	public Font getFont() {
 		return font;
 	}
-	
-	/**
-	 * 
-	 * Set Methods
-	 */
 	public void setUserID(String userID) {
 		this.userID = userID;
 	}
