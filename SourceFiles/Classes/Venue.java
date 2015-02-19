@@ -8,4 +8,7 @@ public class Venue {
 	private Address address;
 	private Image photo;
 
+        public String getName () {
+                return name;
+}
 }
