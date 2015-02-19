@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename source folder &apos;SourceFiles/Users&apos; to &apos;Classes&apos;&#x0A;- Original project: &apos;SourceFiles&apos;&#x0A;- Original element: &apos;SourceFiles/Users&apos;&#x0A;- Renamed element: &apos;Users&apos;" description="Rename source folder &apos;Users&apos;" id="org.eclipse.jdt.ui.rename.source.folder" input="/Users" name="Classes" stamp="1424313905584" version="1.0"/>
+</session>
