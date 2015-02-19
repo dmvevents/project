@@ -1,0 +1,13 @@
+
+public class Address {
+	Address_ID 
+	Street
+	City
+	State
+	Region
+	Country
+	ZipCode
+	Map_Long
+	Map_Lat 
+
+}

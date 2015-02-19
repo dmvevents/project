@@ -1,5 +1,6 @@
 import java.awt.Image;
 import java.sql.Date;
+import java.util.ArrayList;
 import java.util.LinkedHashMap;
 
 
@@ -7,7 +8,7 @@ public class Events {
 
 	private String eventID;
 	private String name;
-	private Venue venue;
+	private String venue;
 	private Date startTime;
 	private Date endTime;
 	private String info;

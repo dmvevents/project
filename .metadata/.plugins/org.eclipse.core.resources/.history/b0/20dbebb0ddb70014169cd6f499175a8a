@@ -7,7 +7,7 @@ public class Events {
 
 	private String eventID;
 	private String name;
-	private Venue venue;
+	private String venue;
 	private Date startTime;
 	private Date endTime;
 	private String info;
