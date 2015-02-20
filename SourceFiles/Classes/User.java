@@ -102,4 +102,8 @@ public class User {
 		this.font = font;
 	}
 
+        @Override
+    public String toString(){
+        return userID+"("+email+") "+fName+lName+", "+dOB+", "+gender+", "+password;
+    }
 }
