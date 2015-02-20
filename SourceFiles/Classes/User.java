@@ -20,6 +20,33 @@ public class User {
 	private Color bgColor;
 	private Font font;
 	
+        //default constructor
+        public User(){
+    }
+        //constructor to create address with information in it
+        public User (String a, String b, String c, String d, Date e, Gender f, String g, Image h, Color i, Font j){
+        
+        userID = a;
+	email = b;
+	fName = c;
+	lName = d;
+	dOB = e;
+	gender = f;
+	password = g;
+	Photo = h;
+	bgColor = i;
+	font = j;
+    }
+        
+        /**
+	 * 
+	 * toString
+	 */
+        
+        @Override
+        public String toString(){
+            return userID+"("+email+") "+fName+lName+", "+dOB+", "+gender+", "+password;
+    }
 	/**
 	 * 
 	 * Get Methods 
@@ -101,9 +128,4 @@ public class User {
 	public void setFont(Font font) {
 		this.font = font;
 	}
-
-        @Override
-    public String toString(){
-        return userID+"("+email+") "+fName+lName+", "+dOB+", "+gender+", "+password;
-    }
 }
