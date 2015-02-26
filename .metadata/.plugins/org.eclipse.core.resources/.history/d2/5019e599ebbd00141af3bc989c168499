@@ -51,25 +51,18 @@ public class Landing extends JFrame {
 		gbc.gridwidth=2;
 		loginPanel.add(new JLabel(new ImageIcon(logo)),gbc);
 		
-		gbc.fill = GridBagConstraints.HORIZONTAL;
-		gbc.gridx=0;
-		gbc.gridy=1;
-		gbc.gridwidth=2;
-		loginPanel.add(new JPanel(),gbc);
-
-		
 		/*
 		 * Add the buttons to the panel 
 		 */
 		
 		gbc.fill = GridBagConstraints.HORIZONTAL;
 		gbc.gridx=0;
-		gbc.gridy=2;
+		gbc.gridy=1;
 		gbc.gridwidth=1;
 		loginPanel.add(login,gbc);
 		
 		gbc.gridx=1;
-		gbc.gridy=2;
+		gbc.gridy=1;
 		loginPanel.add(register,gbc);
 		
 		//Add panel to main frame 

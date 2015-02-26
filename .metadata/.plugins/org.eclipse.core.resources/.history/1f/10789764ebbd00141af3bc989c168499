@@ -9,8 +9,8 @@ public class GUIDriver {
 	public static void main (String args[]) throws IOException, ClassNotFoundException, InstantiationException, IllegalAccessException, UnsupportedLookAndFeelException{
 		
 		System.out.println("Hello");
-	      UIManager.setLookAndFeel(
-	              UIManager.getCrossPlatformLookAndFeelClassName());		
+		//UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
+		
 		Landing landing = new Landing();
 		landing.setVisible(true);
 		
@@ -22,9 +22,6 @@ public class GUIDriver {
 		
 		Homepage homepage = new Homepage();
 		homepage.setVisible(true);
-		
-		CreateEvent creatEvent = new CreateEvent();
-		creatEvent.setVisible(true);
 		
 	}
 
