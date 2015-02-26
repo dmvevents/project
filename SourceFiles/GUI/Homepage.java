@@ -14,6 +14,7 @@ import javax.swing.JPanel;
 import javax.swing.JTable;
 
 
+@SuppressWarnings("serial")
 public class Homepage extends JFrame {
 	
 	Image userPic;

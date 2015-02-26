@@ -167,7 +167,7 @@ public class CreateEvent extends JFrame {
 		 */
 		
 		JPanel registerCancel = new JPanel (new GridLayout(1,2));
-		edit = new JButton("Edit");
+		edit = new JButton("Create");
 		registerCancel.add(edit);
 		cancel = new JButton("Cancel");
 		registerCancel.add(cancel);

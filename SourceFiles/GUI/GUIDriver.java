@@ -26,6 +26,9 @@ public class GUIDriver {
 		CreateEvent creatEvent = new CreateEvent();
 		creatEvent.setVisible(true);
 		
+		EventPage event = new EventPage();
+		event.setVisible(true);
+		
 	}
 
 }

@@ -42,7 +42,7 @@ public class Register extends JFrame {
 	private JButton cancel;
 
 	// Set up panel
-	private JPanel registerPanel;
+	private JPanel formPanel;
 
 	public Register() {
 
@@ -55,7 +55,7 @@ public class Register extends JFrame {
 	public void createPanel() {
 
 		// Create panel
-		JPanel formPanel = new JPanel(new SpringLayout());
+		formPanel = new JPanel(new SpringLayout());
 
 		/*
 		 * Add first row
