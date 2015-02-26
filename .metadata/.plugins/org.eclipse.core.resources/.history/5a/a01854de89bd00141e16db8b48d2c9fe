@@ -1,0 +1,33 @@
+import java.awt.GridBagLayout;
+import java.awt.Image;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+
+
+public class Landing extends JFrame {
+	
+	private JButton login;
+	private JButton register;
+	private Image logo;
+	private JPanel loginPanel;
+	
+	public Landing (){
+		
+		
+		
+	}
+	
+	public void createPanel(){
+		
+		loginPanel = new JPanel(new GridBagLayout());
+		login = new JButton("Login");
+		register = new JButton ("Register");
+		
+	}
+	
+	
+	
+	
+}

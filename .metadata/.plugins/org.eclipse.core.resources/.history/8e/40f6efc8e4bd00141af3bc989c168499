@@ -1,0 +1,40 @@
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
+import java.awt.Image;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JTable;
+
+
+public class Homepage extends JFrame {
+	
+	Image userPic;
+	JLabel userName;
+	JLabel userBday;
+	JTable userEvents;
+	JButton createEvent;
+	JButton editSettings;
+	JPanel homepage;
+	
+	public Homepage(){
+		
+		
+	}
+	
+	public void createPanel() {
+		
+		//Create Panel Instance
+		homepage = new JPanel (new GridBagLayout());
+		
+		//Set Constraints
+		GridBagConstraints gbc = new GridBagConstraints();
+		
+		
+		
+		
+	}
+
+}

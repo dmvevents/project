@@ -6,7 +6,9 @@ import java.util.LinkedHashMap;
 
 
 public class User {
-	
+	/**
+	 * User Fields 
+	 */
 	private String userID;
 	private String email;
 	private String fName;

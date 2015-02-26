@@ -1,0 +1,53 @@
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
+import java.awt.GridLayout;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
+
+
+@SuppressWarnings("serial")
+public class Login extends JFrame {
+	
+	private JPanel loginPanel;
+	private JLabel emailLabel;
+	private JTextField email;
+	private JButton login;
+	private JButton cancel;
+	
+	
+	public Login (){
+		
+		new JFrame();
+		setTitle("Login");
+		setSize(200,200);
+		createPanel();
+	}
+
+	public void createPanel (){
+		
+		//Initialize Fields
+		loginPanel = new JPanel(new GridBagLayout());
+		emailLabel = new JLabel("Email");
+		email = new JTextField();
+		
+		//Set Constraints
+		GridBagConstraints gbc = new GridBagConstraints();
+		
+		emailLabel.setLabelFor(email);
+		loginPanel.add(email);
+		
+		JPanel buttonPanel = new JPanel (new GridLayout(1,2));
+		login = new JButton("Login");
+		cancel = new JButton ("Cancel");
+		buttonPanel.add(login);
+		buttonPanel.add(cancel);
+		loginPanel.add(buttonPanel);
+		
+		add(loginPanel);
+
+	}
+}

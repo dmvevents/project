@@ -1,0 +1,135 @@
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+
+import javax.swing.*;
+
+import java.awt.*;
+
+
+@SuppressWarnings("serial")
+public class Register extends JFrame {
+	
+	//Labels for frames 
+	private JLabel firstLabel;
+	private JLabel lastLabel;
+	private JLabel emailLabel;
+	private JLabel dobLabel;
+	private JLabel genderLabel;
+	private JLabel passLabel;
+	private JLabel rePassLabel;
+	private JLabel photoLabel;
+	
+	//Entry fields
+	private JTextField first;
+	private JTextField last;
+	private JTextField email;
+	private DateFormat format;
+	private JFormattedTextField dateTextField;
+	private JComboBox gender;
+	private JTextField pass;
+	private JTextField rePass;
+	private JFileChooser fileChooser;
+	
+	//Set up panel 
+	private JPanel registerPanel;
+	
+	public Register (){
+		
+		new JFrame("Frame");
+		setSize(400,200);
+		createPanel();
+	}
+	
+	public void createPanel(){
+		
+		//Create panel 
+		JPanel formPanel = new JPanel (new SpringLayout());
+				
+		/*
+		 * Add first row 
+		 */
+		firstLabel = new JLabel("First",JLabel.TRAILING);		
+		formPanel.add(firstLabel);
+		
+		first = new JTextField(20);
+		firstLabel.setLabelFor(first);
+		formPanel.add(first);
+		
+		/*
+		 * Add last name row 
+		 */
+		lastLabel = new JLabel("Last",JLabel.TRAILING);		
+		formPanel.add(lastLabel);
+		
+		last = new JTextField(20);
+		lastLabel.setLabelFor(last);
+		formPanel.add(last);
+		
+		/*
+		 * Add email row 
+		 */
+		emailLabel = new JLabel("Email",JLabel.TRAILING);		
+		formPanel.add(emailLabel);
+		
+		email = new JTextField(20);
+		emailLabel.setLabelFor(email);
+		formPanel.add(email);
+		
+		/*
+		 * Add DOB row 
+		 */
+		dobLabel = new JLabel("DOB",JLabel.TRAILING);		
+		formPanel.add(dobLabel);
+		
+		format = new SimpleDateFormat("yyyy--MMMM--dd");
+		dateTextField = new JFormattedTextField(format);		
+		dobLabel.setLabelFor(dateTextField);
+		formPanel.add(dateTextField);
+		
+		/*
+		 * Add gender row 
+		 */
+		genderLabel = new JLabel("Gender",JLabel.TRAILING);		
+		formPanel.add(genderLabel);
+		
+		String[] genderOptions = {"Male","Female"};
+		gender = new JComboBox<String>(genderOptions);
+		genderLabel.setLabelFor(gender);
+		formPanel.add(gender);
+		
+		
+		/*
+		 * Add email row 
+		 */
+		passLabel = new JLabel("Password",JLabel.TRAILING);		
+		formPanel.add(pass);
+		
+		pass = new JTextField(20);
+		passLabel.setLabelFor(pass);
+		formPanel.add(pass);
+		
+		
+		/*
+		 * Add email row 
+		 */
+		rePassLabel = new JLabel("Re-Enter",JLabel.TRAILING);		
+		formPanel.add(rePassLabel);
+		
+		rePass = new JTextField(20);
+		rePassLabel.setLabelFor(rePass);
+		formPanel.add(rePass);
+		
+		//Lay out the panel.
+        SpringUtilities.makeCompactGrid(formPanel,
+                                        5, 2, //rows, cols
+                                        6, 6,        //initX, initY
+                                        6, 6);
+		
+		add(formPanel);	
+	}
+	
+	
+	
+	
+
+}

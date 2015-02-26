@@ -1,0 +1,53 @@
+import java.text.DateFormat;
+
+import javax.swing.JComboBox;
+import javax.swing.JFileChooser;
+import javax.swing.JFormattedTextField;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JTextField;
+
+
+public class Register extends JFrame {
+	
+	//Labels for frames 
+	private JLabel firstLabel;
+	private JLabel lastLabel;
+	private JLabel emailLabel;
+	private JLabel dobLabel;
+	private JLabel genderLabel;
+	private JLabel passLabel;
+	private JLabel rePassLabel;
+	private JLabel photoLabel;
+	
+	//Entry fields
+	private JTextField first;
+	private JTextField last;
+	private JTextField email;
+	private DateFormat format;
+	private JFormattedTextField dateTextField;
+	private JComboBox gender;
+	private JTextField pass;
+	private JTextField rePass;
+	private JFileChooser fileChooser;
+	
+	public Register (){
+		
+		new JFrame("Frame");
+		setSize(200,800);
+		
+	}
+	
+	public void createPanel(){
+		
+		
+		
+		firstLabel = new JLabel("First");
+		
+	}
+	
+	
+	
+	
+
+}
