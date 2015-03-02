@@ -183,7 +183,17 @@ public class CreateEvent extends JFrame {
 				6, 6);
 
 		add(formPanel);
-	}
-
+                cancel.addActionListener(new CancelButtonListener());
+	} 
+        
+    private class CancelButtonListener implements ActionListener {
+        public CancelButtonListener(){
+        }
+        
+        @Override
+        public void actionPerformed(ActionEvent e){
+            setVisible(false);
+        }
+    }
 }
 

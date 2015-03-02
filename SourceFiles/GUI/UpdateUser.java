@@ -65,6 +65,6 @@ public class UpdateUser extends JFrame {
 		loginPanel.add(cancel,gbc);
 		
 		add(loginPanel);
-
+               
 	}
 }

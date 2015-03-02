@@ -1,5 +1,11 @@
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.io.IOException;
+import java.io.PrintStream;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -25,7 +31,7 @@ public class Login extends JFrame {
 		setSize(200,200);
 		createPanel();
 	}
-
+        
 	public void createPanel (){
 		
 		//Initialize Fields
@@ -65,6 +71,31 @@ public class Login extends JFrame {
 		loginPanel.add(cancel,gbc);
 		
 		add(loginPanel);
-
-	}
+                cancel.addActionListener(new CancelButtonListener());
+                login.addActionListener(new LoginButtonListener());
+	} 
+        
+        private class LoginButtonListener implements ActionListener {
+            public LoginButtonListener(){
+        
+        }
+        @Override
+        public void actionPerformed(ActionEvent e){
+            //verify user
+            GUIDriver.login = true;
+        }
+    }
+        
+        
+    private class CancelButtonListener implements ActionListener {
+        public CancelButtonListener(){
+        }
+        
+        @Override
+        public void actionPerformed(ActionEvent e){
+            dispose();
+        }
+    }
+        
+        
 }

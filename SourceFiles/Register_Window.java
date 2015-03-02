@@ -27,7 +27,7 @@ public class Register_Window extends JFrame {
     
     private JPanel newUserPanel;
 
-    public Proj_Window() {
+    public void Proj_Window() {
         
        createUser();
        
