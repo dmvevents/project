@@ -5,6 +5,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
 import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
@@ -22,7 +24,7 @@ public class Landing extends JFrame {
 	private Image logo;
 	private JPanel loginPanel;
 	
-	public Landing () throws IOException{
+	public Landing () {
 		
 		new JFrame("Frame");
 		setTitle("Landing Page");
@@ -31,14 +33,18 @@ public class Landing extends JFrame {
 		
 	}
 	
-	public void createPanel() throws IOException{
+	public void createPanel(){
 		
 		//Initialize Panel Variables
 		
 		loginPanel = new JPanel(new GridBagLayout());
 		login = new JButton("Login");
 		register = new JButton ("Register");
-		logo = ImageIO.read(new File ("c:/bday.jpeg"));
+            try {
+                logo = ImageIO.read(new File ("c:/bday.jpeg"));
+            } catch (IOException ex) {
+                Logger.getLogger(Landing.class.getName()).log(Level.SEVERE, null, ex);
+            }
 		
 		//Set Constraints
 		GridBagConstraints gbc = new GridBagConstraints();

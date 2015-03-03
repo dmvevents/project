@@ -4,6 +4,8 @@ import java.awt.GridLayout;
 import java.awt.Image;
 import java.io.File;
 import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
@@ -25,7 +27,7 @@ public class EventPage extends JFrame {
 	JButton editSettings;
 	JPanel event;
 	
-	public EventPage() throws IOException{
+	public EventPage(){
 		
 		new JFrame();
 		setTitle("Event Page");
@@ -34,7 +36,7 @@ public class EventPage extends JFrame {
 		
 	}
 	
-	public void createPanel() throws IOException {
+	public void createPanel() {
 		
 		//Create Panel Instance
 		event = new JPanel (new GridBagLayout());
@@ -47,7 +49,11 @@ public class EventPage extends JFrame {
 		gbc.gridx=0;
 		gbc.gridy=0;
 		gbc.gridwidth=1;
-		userPic = ImageIO.read(new File ("face.jpeg"));
+            try {
+                userPic = ImageIO.read(new File ("face.jpeg"));
+            } catch (IOException ex) {
+                Logger.getLogger(EventPage.class.getName()).log(Level.SEVERE, null, ex);
+            }
 		event.add(new JLabel(new ImageIcon(userPic)));
 		
 		

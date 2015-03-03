@@ -1,15 +1,21 @@
+import java.awt.Component;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.GridLayout;
 import java.awt.Image;
+import java.awt.event.ActionEvent;
 import java.io.File;
 import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import javax.imageio.ImageIO;
+import javax.swing.AbstractAction;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTable;
 
@@ -21,11 +27,23 @@ public class Homepage extends JFrame {
 	JLabel userName;
 	JLabel userBday;
 	JTable userEvents;
-	JButton createEvent;
+        
+        private final JButton createEvent = new JButton(new AbstractAction("Create Event") {
+        @Override
+        public void actionPerformed( ActionEvent e ) {
+           CreateEvent creatEvent = new CreateEvent();
+           creatEvent.setLocationRelativeTo(null);
+           creatEvent.setVisible(true);
+        }
+    });
+       
+                
+        
+        
 	JButton editSettings;
 	JPanel homepage;
 	
-	public Homepage() throws IOException{
+	public Homepage(){
 		
 		new JFrame("Frame");
 		setTitle("Homepage");
@@ -34,7 +52,7 @@ public class Homepage extends JFrame {
 		
 	}
 	
-	public void createPanel() throws IOException {
+	public void createPanel(){
 		
 		//Create Panel Instance
 		homepage = new JPanel (new GridBagLayout());
@@ -47,7 +65,11 @@ public class Homepage extends JFrame {
 		gbc.gridx=0;
 		gbc.gridy=0;
 		gbc.gridwidth=1;
-		userPic = ImageIO.read(new File ("face.jpeg"));
+            try {
+                userPic = ImageIO.read(new File ("face.jpeg"));
+            } catch (IOException ex) {
+                Logger.getLogger(Homepage.class.getName()).log(Level.SEVERE, null, ex);
+            }
 		homepage.add(new JLabel(new ImageIcon(userPic)));
 		
 		
@@ -103,7 +125,6 @@ public class Homepage extends JFrame {
 		gbc.gridy=3;
 		gbc.gridwidth=2;
 		gbc.gridheight=1;
-		createEvent = new JButton ("Create Event");
 		homepage.add(createEvent,gbc);
 		
 		gbc.gridx=2;

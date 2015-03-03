@@ -1,3 +1,4 @@
+import java.awt.Component;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.event.ActionEvent;
@@ -6,10 +7,12 @@ import java.io.IOException;
 import java.io.PrintStream;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.AbstractAction;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
@@ -20,7 +23,19 @@ public class Login extends JFrame {
 	private JPanel loginPanel;
 	private JLabel emailLabel;
 	private JTextField email;
-	private JButton login;
+        
+        private final JButton login = new JButton(new AbstractAction("login") {
+        @Override
+        public void actionPerformed( ActionEvent e ) {
+            // add Action
+            Homepage homepage = new Homepage();
+            homepage.setLocationRelativeTo(null);
+            homepage.setVisible(true);
+            
+        }
+    });
+                
+                
 	private JButton cancel;
 	
 	
@@ -30,6 +45,8 @@ public class Login extends JFrame {
 		setTitle("Login");
 		setSize(200,200);
 		createPanel();
+                
+        
 	}
         
 	public void createPanel (){
@@ -61,7 +78,6 @@ public class Login extends JFrame {
 		gbc.gridx=0;
 		gbc.gridy=1;
 		gbc.gridwidth=2;
-		login = new JButton("Login");
 		loginPanel.add(login,gbc);
 		
 		gbc.gridx=2;
@@ -72,21 +88,9 @@ public class Login extends JFrame {
 		
 		add(loginPanel);
                 cancel.addActionListener(new CancelButtonListener());
-                login.addActionListener(new LoginButtonListener());
+                
 	} 
-        
-        private class LoginButtonListener implements ActionListener {
-            public LoginButtonListener(){
-        
-        }
-        @Override
-        public void actionPerformed(ActionEvent e){
-            //verify user
-            GUIDriver.login = true;
-        }
-    }
-        
-        
+    
     private class CancelButtonListener implements ActionListener {
         public CancelButtonListener(){
         }
