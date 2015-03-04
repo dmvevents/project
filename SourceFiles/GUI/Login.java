@@ -23,14 +23,25 @@ public class Login extends JFrame {
 	private JPanel loginPanel;
 	private JLabel emailLabel;
 	private JTextField email;
+        private JTextField password;
         
         private final JButton login = new JButton(new AbstractAction("login") {
         @Override
         public void actionPerformed( ActionEvent e ) {
-            // add Action
-            Homepage homepage = new Homepage();
-            homepage.setLocationRelativeTo(null);
-            homepage.setVisible(true);
+            Component frame = null;
+            
+            if (email.getText().equals(""))JOptionPane.showMessageDialog(frame,
+                    "Please Enter Email to login!");else {
+                if (password.getText().equals(""))JOptionPane.showMessageDialog(frame,
+                    "Please Enter A Password to login!");else {
+                        //code to verify Email and password goes here (if password equals)... 
+                         Homepage homepage = new Homepage();
+                         homepage.setLocationRelativeTo(null);
+                         homepage.setVisible(true);
+                }
+            }
+            
+           
             
         }
     });
@@ -72,16 +83,28 @@ public class Login extends JFrame {
 		gbc.gridwidth=3;
 		email = new JTextField();
 		loginPanel.add(email,gbc);
+                
+                gbc.fill = GridBagConstraints.HORIZONTAL;
+		gbc.gridx=0;
+		gbc.gridy=1;
+		emailLabel = new JLabel("Pass: ");
+		loginPanel.add(emailLabel,gbc);
+		
+		gbc.gridx=1;
+		gbc.gridy=1;
+		gbc.gridwidth=3;
+		password = new JTextField();
+		loginPanel.add(password,gbc);
 		
 		
 		gbc.fill = GridBagConstraints.HORIZONTAL;
 		gbc.gridx=0;
-		gbc.gridy=1;
+		gbc.gridy=2;
 		gbc.gridwidth=2;
 		loginPanel.add(login,gbc);
 		
 		gbc.gridx=2;
-		gbc.gridy=1;
+		gbc.gridy=2;
 		gbc.gridwidth=2;
 		cancel = new JButton ("Cancel");
 		loginPanel.add(cancel,gbc);
