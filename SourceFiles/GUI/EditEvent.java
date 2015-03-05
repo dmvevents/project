@@ -48,6 +48,7 @@ public class EditEvent extends JFrame {
 		setTitle("Edit Event");
 		setSize(300, 320);
 		createPanel();
+		pack();
 	}
 
 	public void createPanel() {
@@ -110,7 +111,7 @@ public class EditEvent extends JFrame {
 		/*
 		 * Add event date row 
 		 */
-		format = new SimpleDateFormat("MM/DD/YYYY");
+		format = new SimpleDateFormat("yyyy--MMMM--dd");
 
 		eventDateLabel = new JLabel("Event Date: ", JLabel.TRAILING);
 		formPanel.add(eventDateLabel);
@@ -183,6 +184,18 @@ public class EditEvent extends JFrame {
 				6, 6);
 
 		add(formPanel);
+	}
+
+	public JButton getAddUser() {
+		return addUser;
+	}
+
+	public JButton getEdit() {
+		return edit;
+	}
+
+	public JButton getCancel() {
+		return cancel;
 	}
 
 }

@@ -4,8 +4,6 @@ import java.awt.GridLayout;
 import java.awt.Image;
 import java.io.File;
 import java.io.IOException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
@@ -27,16 +25,17 @@ public class EventPage extends JFrame {
 	JButton editSettings;
 	JPanel event;
 	
-	public EventPage(){
+	public EventPage() throws IOException{
 		
 		new JFrame();
 		setTitle("Event Page");
 		setSize(300, 300);
 		createPanel();
+		pack();
 		
 	}
 	
-	public void createPanel() {
+	public void createPanel() throws IOException {
 		
 		//Create Panel Instance
 		event = new JPanel (new GridBagLayout());
@@ -49,11 +48,7 @@ public class EventPage extends JFrame {
 		gbc.gridx=0;
 		gbc.gridy=0;
 		gbc.gridwidth=1;
-            try {
-                userPic = ImageIO.read(new File ("face.jpeg"));
-            } catch (IOException ex) {
-                Logger.getLogger(EventPage.class.getName()).log(Level.SEVERE, null, ex);
-            }
+		userPic = ImageIO.read(new File ("face.jpeg"));
 		event.add(new JLabel(new ImageIcon(userPic)));
 		
 		
@@ -96,8 +91,8 @@ public class EventPage extends JFrame {
 		gbc.gridy=2;
 		gbc.gridwidth=2;
 		gbc.gridheight=1;
-		editSettings = new JButton ("Update Event");
-		event.add(editSettings,gbc);
+		updateEvent = new JButton ("Update Event");
+		event.add(updateEvent,gbc);
 		
 		gbc.gridx=2;
 		gbc.gridy=2;
@@ -107,6 +102,14 @@ public class EventPage extends JFrame {
 		
 		add(event);
 		
+	}
+	
+	public JButton getUpdateEvent() {
+		return updateEvent;
+	}
+
+	public JButton getEditSettings() {
+		return editSettings;
 	}
 
 }

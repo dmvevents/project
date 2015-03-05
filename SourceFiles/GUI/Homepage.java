@@ -1,21 +1,15 @@
-import java.awt.Component;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.GridLayout;
 import java.awt.Image;
-import java.awt.event.ActionEvent;
 import java.io.File;
 import java.io.IOException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 import javax.imageio.ImageIO;
-import javax.swing.AbstractAction;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTable;
 
@@ -23,36 +17,29 @@ import javax.swing.JTable;
 @SuppressWarnings("serial")
 public class Homepage extends JFrame {
 	
-	Image userPic;
-	JLabel userName;
-	JLabel userBday;
-	JTable userEvents;
-        
-        private final JButton createEvent = new JButton(new AbstractAction("Create Event") {
-        @Override
-        public void actionPerformed( ActionEvent e ) {
-           CreateEvent creatEvent = new CreateEvent();
-           creatEvent.setLocationRelativeTo(null);
-           creatEvent.setVisible(true);
-        }
-    });
-       
-                
-        
-        
-	JButton editSettings;
-	JPanel homepage;
+	private Image userPic;
+	private JLabel userName;
+	private JLabel userBday;
+
+
+	private JTable userEvents;
 	
-	public Homepage(){
+
+	private JButton createEvent;
+	private JButton editSettings;
+	private JPanel homepage;
+	
+	public Homepage() throws IOException{
 		
 		new JFrame("Frame");
 		setTitle("Homepage");
 		setSize(300, 300);
 		createPanel();
+		pack();
 		
 	}
 	
-	public void createPanel(){
+	public void createPanel() throws IOException {
 		
 		//Create Panel Instance
 		homepage = new JPanel (new GridBagLayout());
@@ -65,11 +52,7 @@ public class Homepage extends JFrame {
 		gbc.gridx=0;
 		gbc.gridy=0;
 		gbc.gridwidth=1;
-            try {
-                userPic = ImageIO.read(new File ("face.jpeg"));
-            } catch (IOException ex) {
-                Logger.getLogger(Homepage.class.getName()).log(Level.SEVERE, null, ex);
-            }
+		userPic = ImageIO.read(new File ("face.jpeg"));
 		homepage.add(new JLabel(new ImageIcon(userPic)));
 		
 		
@@ -125,6 +108,7 @@ public class Homepage extends JFrame {
 		gbc.gridy=3;
 		gbc.gridwidth=2;
 		gbc.gridheight=1;
+		createEvent = new JButton ("Create Event");
 		homepage.add(createEvent,gbc);
 		
 		gbc.gridx=2;
@@ -135,6 +119,18 @@ public class Homepage extends JFrame {
 		
 		add(homepage);
 		
+	}
+	
+	public JButton getCreateEvent() {
+		return createEvent;
+	}
+
+	public JButton getEditSettings() {
+		return editSettings;
+	}
+	
+	public JTable getUserEvents() {
+		return userEvents;
 	}
 
 }

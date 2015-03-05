@@ -24,6 +24,7 @@ public class AddUser extends JFrame {
 		setTitle("Add User");
 		setSize(200,200);
 		createPanel();
+		pack();
 	}
 
 	public void createPanel (){
@@ -67,4 +68,13 @@ public class AddUser extends JFrame {
 		add(loginPanel);
 
 	}
+	
+	public JButton getAddUser() {
+		return addUser;
+	}
+
+	public JButton getCancel() {
+		return cancel;
+	}
+
 }

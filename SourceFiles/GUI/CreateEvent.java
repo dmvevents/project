@@ -4,7 +4,6 @@ import java.awt.event.ActionListener;
 import java.io.File;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
-import javax.swing.AbstractAction;
 
 import javax.swing.JButton;
 import javax.swing.JFileChooser;
@@ -40,15 +39,7 @@ public class CreateEvent extends JFrame {
 	private JFormattedTextField eventDate;
 	private JButton addUser; 
 	private JButton fileButton;
-        private final JButton edit = new JButton(new AbstractAction("Create") {
-        @Override
-        public void actionPerformed( ActionEvent e ) {
-           EventPage event = new EventPage();
-           event.setLocationRelativeTo(null);
-           event.setVisible(true);
-        }
-    });
-        
+	private JButton create;
 	private JButton cancel;
 
 	public CreateEvent() {
@@ -57,6 +48,7 @@ public class CreateEvent extends JFrame {
 		setTitle("Create Event");
 		setSize(300, 320);
 		createPanel();
+		pack();
 	}
 
 	public void createPanel() {
@@ -138,7 +130,6 @@ public class CreateEvent extends JFrame {
 		
 		//Action listener for add user
 		addUser.addActionListener(new ActionListener() {
-                        @Override
 			public void actionPerformed(ActionEvent ae) {
 					
 				//Button Action -> open add user frame
@@ -157,7 +148,6 @@ public class CreateEvent extends JFrame {
 		
 		//Action lister for file chooser
 		fileButton.addActionListener(new ActionListener() {
-                        @Override
 			public void actionPerformed(ActionEvent ae) {
 
 				JFileChooser fileChooser = new JFileChooser();
@@ -178,14 +168,12 @@ public class CreateEvent extends JFrame {
 		 */
 		
 		JPanel registerCancel = new JPanel (new GridLayout(1,2));
-		registerCancel.add(edit);
+		create = new JButton("Create");
+		registerCancel.add(create);
 		cancel = new JButton("Cancel");
 		registerCancel.add(cancel);
 		formPanel.add(new JPanel());
 		formPanel.add(registerCancel);
-
-
-
 
 		// Lay out the panel.
 		SpringUtilities.makeCompactGrid(formPanel, 9, 2, // rows, cols
@@ -193,17 +181,18 @@ public class CreateEvent extends JFrame {
 				6, 6);
 
 		add(formPanel);
-                cancel.addActionListener(new CancelButtonListener());
-	} 
-        
-    private class CancelButtonListener implements ActionListener {
-        public CancelButtonListener(){
-        }
-        
-        @Override
-        public void actionPerformed(ActionEvent e){
-            setVisible(false);
-        }
-    }
+	}
+	
+	public JButton getCreate() {
+		return create;
+	}
+
+	public JButton getCancel() {
+		return cancel;
+	}
+
+	public JButton getAddUser() {
+		return addUser;
+	}
 }
 
