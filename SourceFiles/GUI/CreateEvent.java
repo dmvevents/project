@@ -1,4 +1,5 @@
 import java.awt.GridLayout;
+import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
@@ -194,6 +195,29 @@ public class CreateEvent extends JFrame {
 
 	public JButton getAddUser() {
 		return addUser;
+	}
+
+	public boolean isInfoValid() {
+		// TODO Auto-generated method stub
+		return true;
+	}
+
+	public Events getEventInfo() {
+		// TODO Auto-generated method stub
+		
+		//TODO import image 
+		
+		Image newPhoto = null;
+		Events newEvent = new Events(
+				"001",
+				eventName.getText(),
+				eventVenue.getText(),
+				startTime.getText(),
+				endTime.getText(),
+				eventInfo.getText(),
+				eventDate.getText(),
+				newPhoto);
+		return newEvent;
 	}
 }
 

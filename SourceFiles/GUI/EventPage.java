@@ -112,4 +112,22 @@ public class EventPage extends JFrame {
 		return editSettings;
 	}
 
+	public void updateFrame(Events currentEvent) {
+		// TODO Auto-generated method stub
+		//Add info from current event
+		Image photo = null;
+		
+		this.userPic = photo;
+		
+		this.eventName.setText("sdsdsds");
+		this.eventDate.setText("sdsdsds");
+		this.eventInfo.setText("sdsdsds");	
+		
+		/*
+		this.eventName.setText(currentEvent.getName());
+		this.eventDate.setText(currentEvent.getDate());
+		this.eventInfo.setText(currentEvent.getInfo());
+		*/	
+	}
+
 }

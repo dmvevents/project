@@ -4,6 +4,8 @@ import java.awt.GridLayout;
 import java.awt.Image;
 import java.io.File;
 import java.io.IOException;
+import java.util.Iterator;
+import java.util.LinkedHashMap;
 
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
@@ -12,6 +14,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
 
 
 @SuppressWarnings("serial")
@@ -28,18 +31,19 @@ public class Homepage extends JFrame {
 	private JButton createEvent;
 	private JButton editSettings;
 	private JPanel homepage;
+	DefaultTableModel model;
 	
-	public Homepage() throws IOException{
+	public Homepage(LinkedHashMap<String, Events> eventsMap) throws IOException{
 		
 		new JFrame("Frame");
 		setTitle("Homepage");
 		setSize(300, 300);
-		createPanel();
+		createPanel(eventsMap);
 		pack();
 		
 	}
 	
-	public void createPanel() throws IOException {
+	public void createPanel(LinkedHashMap<String, Events> eventsMap) throws IOException {
 		
 		//Create Panel Instance
 		homepage = new JPanel (new GridBagLayout());
@@ -77,16 +81,44 @@ public class Homepage extends JFrame {
 		 * 
 		 */
 		
-		String [] columnData = {"Event Name","User", "Date","Venue"};
-		String [][] dummyData = {
-				{"Event1", "Anton", "00/00/00", "DC"},
-				{"Event2", "Eric", "00/00/00", "DC"},
-				{"Event3", "Jay", "00/00/00", "DC"},
-				{"Event1", "Sallie", "00/00/00", "DC"}
-				};
+		
+		int mapSize = eventsMap.size();
+		String [] columnData = {"Event ID","Event Name","User", "Date","Venue"};
+
+		String [][] newData = new String [mapSize][5];
+		
+		model = new DefaultTableModel(); 
+	
+		
+		Iterator<Events> it = eventsMap.values().iterator();
+		int i=0;
+		
+		while(it.hasNext()){
+			
+			Events currentEvent = it.next();
+
+			String currentID= currentEvent.getEventID();
+			String eventName = currentEvent.getName();
+			String userName = "Anton";
+			String eventDate = currentEvent.getDate();
+			String eventVenue = currentEvent.getVenue();
+			
+			newData[i][0]= currentID;
+			newData[i][1]= eventName;
+			newData[i][2]= userName;
+			newData[i][3]= eventDate;
+			newData[i][4]= eventVenue;
+			
+			i++;
+		}
 		
 		
-		userEvents = new JTable (dummyData,columnData);
+		model.setColumnIdentifiers(columnData);
+		model.addColumn(newData);
+		
+		//JTable newEvents = new JTable (newData,columnData);
+		userEvents = new JTable (newData,columnData);
+		
 		
 		//Add user info panel 
 		gbc.fill = GridBagConstraints.HORIZONTAL;
@@ -131,6 +163,42 @@ public class Homepage extends JFrame {
 	
 	public JTable getUserEvents() {
 		return userEvents;
+	}
+
+	public void updateEvents(LinkedHashMap<String, Events> eventsMap) {
+		// TODO Auto-generated method stub
+		
+		int mapSize = eventsMap.size();
+		String [] columnData = {"Event ID","Event Name","User", "Date","Venue"};
+
+		String [][] newData = new String [mapSize][5];
+		
+		Iterator<Events> it = eventsMap.values().iterator();
+		int i=0;
+		
+		while(it.hasNext()){
+			
+			Events currentEvent = it.next();
+
+			String currentID= currentEvent.getEventID();
+			String eventName = currentEvent.getName();
+			String userName = "Anton";
+			String eventDate = currentEvent.getDate();
+			String eventVenue = currentEvent.getVenue();
+			
+			newData[i][0]= currentID;
+			newData[i][1]= eventName;
+			newData[i][2]= userName;
+			newData[i][3]= eventDate;
+			newData[i][4]= eventVenue;
+			
+			i++;
+		}
+		
+		userEvents = new JTable (newData,columnData);
+		
+		validate();
+		repaint();
 	}
 
 }

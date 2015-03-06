@@ -1,7 +1,7 @@
 import java.awt.Color;
-import java.awt.GridBagConstraints;
-import java.awt.GridBagLayout;
+import java.awt.Font;
 import java.awt.GridLayout;
+import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
@@ -216,6 +216,32 @@ public class UpdateUser extends JFrame {
 
 	public JButton getEditUser() {
 		return editUser;
+	}
+
+	public boolean isInfoValid() {
+		
+		// TODO Auto-generated method stub
+		return true;
+	}
+
+	public User getInfo(String updatedUserID) {
+				
+		Image photo = null;
+		
+		User updatedUserInfo = new User(
+				"updatedUserID",
+				email.getText(),
+				first.getText(),
+				last.getText(),
+				dateTextField.getText(),
+				gender.getSelectedItem().toString(),
+				"password",
+				photo,
+				new Color(1),
+				new Font("Serif",Font.BOLD, 12)
+				);
+	
+		return updatedUserInfo;
 	}
 
 }

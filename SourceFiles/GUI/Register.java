@@ -1,13 +1,14 @@
 import java.awt.Color;
 import java.awt.Component;
+import java.awt.Font;
 import java.awt.GridLayout;
+import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import javax.swing.AbstractAction;
-
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JFileChooser;
@@ -248,4 +249,37 @@ public class Register extends JFrame {
 		return cancel;
 	}
 
+	public String getEmailKey() {
+		// TODO Auto-generated method stub
+		String emailKey = this.email.getText();
+		
+		return emailKey;
+	}
+
+	public User getUser() {
+		// TODO Auto-generated method stub
+		Image photo = null;
+		
+		User newUser = new User(
+				"UserID",
+				email.getText(),
+				first.getText(),
+				last.getText(),
+				dateTextField.getText(),
+				gender.getSelectedItem().toString(),
+				"password",
+				photo,
+				new Color(1),
+				new Font("Serif",Font.BOLD, 12)
+				);
+	
+		
+		
+		return newUser;
+	}
+
+	public boolean isInfoValid() {
+		// TODO Auto-generated method stub
+		return true;
+	}
 }

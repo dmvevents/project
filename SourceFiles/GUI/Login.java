@@ -3,10 +3,6 @@ import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.IOException;
-import java.io.PrintStream;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -23,7 +19,7 @@ public class Login extends JFrame {
 	private JTextField email;
 	private JButton login;
 	private JButton cancel;
-        private JTextField password;
+	private JTextField password;
 
 	public Login() {
 
@@ -56,18 +52,18 @@ public class Login extends JFrame {
 		gbc.gridwidth = 3;
 		email = new JTextField();
 		loginPanel.add(email, gbc);
-                
-                gbc.fill = GridBagConstraints.HORIZONTAL;
-		gbc.gridx=0;
-		gbc.gridy=1;
+
+		gbc.fill = GridBagConstraints.HORIZONTAL;
+		gbc.gridx = 0;
+		gbc.gridy = 1;
 		emailLabel = new JLabel("Pass: ");
-		loginPanel.add(emailLabel,gbc);
-		
-		gbc.gridx=1;
-		gbc.gridy=1;
-		gbc.gridwidth=3;
+		loginPanel.add(emailLabel, gbc);
+
+		gbc.gridx = 1;
+		gbc.gridy = 1;
+		gbc.gridwidth = 3;
 		password = new JTextField();
-		loginPanel.add(password,gbc);
+		loginPanel.add(password, gbc);
 
 		gbc.fill = GridBagConstraints.HORIZONTAL;
 		gbc.gridx = 0;
@@ -88,24 +84,29 @@ public class Login extends JFrame {
 	}
 
 	private class LoginButtonListener implements ActionListener {
-            boolean verification=false;
-            public LoginButtonListener() {
+		public LoginButtonListener() {
 
 		}
 
 		@Override
 		public void actionPerformed(ActionEvent e) {
-                    
-                    Component frame = null;
-            
-            if (email.getText().equals(""))JOptionPane.showMessageDialog(frame,
-                    "Please Enter Email to login!");else {
-                if (password.getText().equals(""))JOptionPane.showMessageDialog(frame,
-                    "Please Enter A Password to login!");else {
-                        //code to verify Email and password goes here (if password equals)...   
-                    GUIDriver.login = true;
-                }
-            }	
+
+			Component frame = null;
+
+			if (email.getText().equals(""))
+				JOptionPane.showMessageDialog(frame,
+						"Please Enter Email to login!");
+			else {
+				if (password.getText().equals(""))
+					JOptionPane.showMessageDialog(frame,
+							"Please Enter A Password to login!");
+				else {
+					// code to verify Email and password goes here (if password
+					// equals)...
+					//TODO
+					GUIDriver.login = true;
+				}
+			}
 		}
 	}
 
@@ -118,13 +119,30 @@ public class Login extends JFrame {
 			dispose();
 		}
 	}
-	
+
 	public JButton getLogin() {
 		return login;
 	}
 
 	public JButton getCancel() {
 		return cancel;
+	}
+
+
+	public String getUserEmail() {
+		String userEmail = email.getText();
+		return userEmail;
+	}
+
+	public String getUserPassword() {
+		// TODO Auto-generated method stub
+		String userPassword = password.getText();
+		return userPassword;
+	}
+
+	public boolean getEmailValid() {
+		// TODO Auto-generated method stub
+		return true;
 	}
 
 }

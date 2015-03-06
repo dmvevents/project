@@ -77,4 +77,16 @@ public class AddUser extends JFrame {
 		return cancel;
 	}
 
+	public boolean isEmailValid() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	public String getEmail() {
+	
+		// TODO Auto-generated method stub
+		String userEmail = email.getText();
+		return userEmail;
+	}
+
 }
